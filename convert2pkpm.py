@@ -32,6 +32,37 @@ def convert2pkpm():
                     wavedatas[i] = float(wavedatas[i]) / 1000.0
                 #print(wavedatas)
             
+            #绘图
+            #https://matplotlib.org/users/pyplot_tutorial.html
+        
+            wavetimes = list(range(1, Points + 1))
+            TimeStep = [wavetimes * Step for wavetimes in range(1, Points + 1)]
+        
+            #图像x坐标上限
+            xuplimit = (int(TimeStep[-1] / 10) + 1) * 10
+            ylimit = (int(max(max(WaveDates),(-1)*min(WaveDates)) * 10) + 1) / 10
+
+            #默认是'b-'，蓝色实线
+            # r--: 红色虚线；bs: 蓝色方块；g^: 绿色三角，等等
+            plt.plot(TimeStep, WaveDates, 'r-', linewidth = 0.3)
+        
+            #设置图表标题
+            plt.title("地震波时程曲线", fontsize = 20)
+            plt.xlabel("时间(s)", fontsize = 15)
+            plt.ylabel("加速度(m/s2)", fontsize = 15)
+        
+            #x, y坐标范围
+            plt.axis([0, xuplimit, -ylimit, ylimit])
+        
+            #图像里有网格
+            plt.grid(True)
+        
+            #设置刻度标记的大小
+            plt.tick_params(axis = 'both', labelsize = 14)
+        
+            #plt.show()
+            plt.savefig('地震波-' + PureFilename + '.png', bbox_inches = 'tight')
+
             #如果是y向、z向波，后缀名修改为.y或者.z
             Newfilename = PureFilename + '.x'
     
