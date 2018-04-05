@@ -47,8 +47,6 @@ def conver2midasgen():
                 # https://stackoverflow.com/questions/455612/limiting-floats-to-two-decimal-points
                 for i in range(Points):
                     file_object.write(("%.4f" % (i * Step)) + ', ' + ("%.4f" % wavedatas[i]) + '\n')
-    
-conver2midasgen()
-    
-
- 
+                    
+if __name__ == "__main__":
+    conver2midasgen()
