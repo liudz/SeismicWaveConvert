@@ -56,5 +56,6 @@ class MyNumber:
             mantissa, exp = ss.split('e')            
             return mantissa + 'e'+ exp[0] + '0' + exp[1:]
         return ss
-        
-conver2yjk()
+
+if __name__ == "__main__":
+    conver2yjk()
