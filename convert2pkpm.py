@@ -76,5 +76,6 @@ def convert2pkpm():
                 for i in range(Points):
                     file_object.write(str(wavedatas[i]) + '\n')
                     
-convert2pkpm()
+if __name__ == "__main__":                
+    convert2pkpm()
     
