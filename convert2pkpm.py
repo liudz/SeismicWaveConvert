@@ -6,6 +6,7 @@
 # 天然波 => PKPM 地震波
 
 import os
+import matplotlib.pyplot as plt
 
 def convert2pkpm():
     for filename in os.listdir():
